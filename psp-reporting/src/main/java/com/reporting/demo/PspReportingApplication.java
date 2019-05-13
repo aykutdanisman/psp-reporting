@@ -1,4 +1,4 @@
-package com.kutztech.reporting.demo;
+package com.reporting.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

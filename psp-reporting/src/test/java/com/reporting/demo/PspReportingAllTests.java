@@ -7,7 +7,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({  
 	TransactionControllerTest.class, 
-	UserControllerTest.class 
+	UserControllerTest.class,
+	ClientControllerTest.class
 	})
 public class PspReportingAllTests {
 

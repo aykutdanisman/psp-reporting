@@ -17,5 +17,6 @@ public class TransactionRepRequest implements Dto {
 	private Date toDate;
 	private Long merchant;
 	private Long acquirer;
+	private String transactionId;
 	
 }

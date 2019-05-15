@@ -13,5 +13,6 @@ public class ResultDTO {
 	
 	private String status;
 	private List<?> response;
+	private ErrorDTO errorDetail;
 
 }

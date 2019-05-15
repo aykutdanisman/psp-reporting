@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.reporting.demo.dto.user.LoginRequest;
 import com.reporting.demo.dto.user.LoginResponse;
 import com.reporting.demo.dto.user.UserResponse;
+import com.reporting.demo.exception.UserNotFoundException;
 import com.reporting.demo.security.JwtTokenFactory;
 import com.reporting.demo.service.impl.UserServiceImpl;
 
@@ -39,12 +40,13 @@ public class UserController {
 	
 	
 	@GetMapping("/getByEmail")
-    public ResponseEntity<UserResponse> getByEmail(@RequestParam(value = "email") String email) {
+    public ResponseEntity<UserResponse> getByEmail(@RequestParam(value = "email") String email) throws UserNotFoundException {
         
 		try {
 			return ResponseEntity.ok(userService.getByEmail(email));
 		} catch (NoSuchElementException e) {//if no record found
-			return ResponseEntity.noContent().build();//return 204
+			//return ResponseEntity.noContent().build();//return 204
+			throw new UserNotFoundException("User can not be found");
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();////return 500
 		}
